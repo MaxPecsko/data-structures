@@ -4,7 +4,7 @@
   "description": "Concepts of data structures and algorithms",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon Queue.js"
+    "start": "nodemon BST.js"
   },
   "repository": {
     "type": "git",
