@@ -84,16 +84,63 @@ class DoublyLinkedList {
   get(index) {
     if (index < 0 || index >= this.length) return null;
 
-    if (index <= this.length/2) {
-      for (let i = this.head, j = 0;j <= index;j++, i = i.next) {
+    if (index <= this.length / 2) {
+      for (let i = this.head, j = 0; j <= index; j++, i = i.next) {
         if (j === index) return i;
       }
     }
 
-    if (index >= this.length/2) {
-      for (let i = this.tail, j = this.length-1;j >= index;j--, i = i.prev) {
+    if (index >= this.length / 2) {
+      for (
+        let i = this.tail, j = this.length - 1;
+        j >= index;
+        j--, i = i.prev
+      ) {
         if (j === index) return i;
       }
     }
+  }
+
+  set(index, val) {
+    const targetNode = this.get(index);
+
+    if (targetNode) {
+      targetNode.val = val;
+      return true;
+    }
+
+    return false;
+  }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+
+    if (index === 0) return this.unshift(val);
+    if (index === this.length) return this.push(val);
+
+    const newNode = new Node(val);
+    const prevNode = this.get(index - 1);
+    const nextNode = prevNode.next;
+
+    (newNode.next = nextNode), (newNode.prev = prevNode);
+    (prevNode.next = newNode), (nextNode.prev = newNode);
+
+    this.length++;
+    return true;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    const targetNode = this.get(index);
+
+    targetNode.prev.next = targetNode.next, targetNode.next.prev = targetNode.prev;
+    targetNode.next = null, targetNode.prev = null;
+
+    this.length--;
+    return targetNode;
   }
 }
