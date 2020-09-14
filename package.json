@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Concepts of data structures and algorithms",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon BST.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaxPecsko/data-structures.git"
@@ -21,11 +18,5 @@
   "bugs": {
     "url": "https://github.com/MaxPecsko/data-structures/issues"
   },
-  "homepage": "https://github.com/MaxPecsko/data-structures#readme",
-  "dependencies": {
-    "express": "^4.16.4"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.11"
-  }
+  "homepage": "https://github.com/MaxPecsko/data-structures#readme"
 }
