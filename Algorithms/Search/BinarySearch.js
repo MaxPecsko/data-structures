@@ -4,7 +4,7 @@
 function binarySearch(arr, value) {
   let start = 0;
   let end = arr.length - 1;
-  // Middle of the array. We'll reasing it on each cycle as we make an array shorter.
+  // Middle of the array. We'll reasign it on each cycle as we make an array shorter.
   let middle = Math.floor((start + end) / 2);
   while (arr[middle] !== value && start <= end) {
     if (value < arr[middle]) end = middle - 1;
